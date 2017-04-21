@@ -23,7 +23,7 @@ module.exports = {
             if (err) {
                 res.json(err);
             } else {
-                res.json({success: 'User successfully created!'});
+                res.json({success: 'Question successfully created!'});
             }
         });
     },

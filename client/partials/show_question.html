@@ -5,15 +5,18 @@
 <h3>{{ question.description }}</h3>
 <hr style="margin: 20px 0px;">
 <h2>Answers:</h2>
-<table>
-    <tr ng-repeat="answer in question.answers | orderBy: 'answer.likes' track by $index">
-        <td>
-            <p>{{ answer.user }}:</p>
+<div class="success-messages" ng-if="success">
+    <p>{{ success }}</p>
+</div>
+<table style="border:0; width: 30%">
+    <tr ng-repeat="answer in question.answers | orderBy: '-likes'">
+        <td style="text-align: left; border:0;">
+            <h3>{{ answer.user }}:</h3>
             <p style="font-weight: bold;">{{ answer.answer }}</p>
-            <p>{{ answer.details }}</p>
+            <p style="font-style: italic;">{{ answer.details }}</p>
         </td>
-        <td>
-            <p>{{ answer.likes }} likes  <button class="button">Like!</button></p>
+        <td style="border:0;">
+            <p>{{ answer.likes }} likes  <button ng-click="like(answer)" class="button">Like!</button></p>
         </td>
     </tr>
 </table>

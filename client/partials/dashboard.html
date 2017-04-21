@@ -1,6 +1,3 @@
-<div class="success-messages" ng-if="success">
-    <p>{{ success }}</p>
-</div>
 <div class="header">
     <div style="display: inline-block; width: 50%">
         <h1>Hi, {{user.user_name}}!</h1>
@@ -9,6 +6,9 @@
     <div style="display: inline-block; width: 47%; text-align: right; vertical-align: top;">
         <a href='/'>Logout</a>
     </div>
+</div>
+<div class="success-messages" ng-if="success">
+    <p>{{ success }}</p>
 </div>
 <input class='searchbar' type="text" ng-model = 'question_filter' placeholder="Search for a question...">
 <table>

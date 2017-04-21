@@ -5,8 +5,8 @@
 <ul class="error-messages" ng-if="error">
     <li ng-repeat="errorObj in validationErrors">{{ errorObj.message }}</li>
 </ul>
-<form name="questionForm" ng-submit="create()">
+<form name="questionForm">
     <p>Question: <textarea rows="4" cols="22" name="question" ng-model='newQuestion.question'></textarea></p>
     <p>Description (optional): <textarea rows="4" cols="22" name="description" ng-model='newQuestion.description'></textarea></p>
-    <p><button class="button">Cancel</button>    <input type="submit" value="Submit" class="button"></p>
+    <p><button class="button" ng-click="clear()">Cancel</button>    <button class="button" ng-click="create()">Submit</button></p>
 </form>

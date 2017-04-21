@@ -1,23 +1,18 @@
 //: Show Questions Controller
-myApp.controller('showQuestionsController', ['$scope', 'usersFactory', 'questionsFactory', '$routeParams', '$location', function ($scope, usersFactory, questionsFactory, $routeParams, $location) {
+myApp.controller('showQuestionsController', ['$scope', 'usersFactory', 'questionsFactory', '$routeParams', '$location', '$route', function ($scope, usersFactory, questionsFactory, $routeParams, $location, $route) {
     if (usersFactory.userstatus === false) {
         $location.url('/');
     } else {
         console.log('good to go @ showing question');
-        // $scope.error = false;
-        // $scope.sortType = 'created_at';
-        // $scope.sortReverse = true;
+        $scope.success;
         $scope.user = usersFactory.user;
-        // var index = function() {
-        //     questionsFactory.index(function(data) {
-        //         // console.log(data);
-        //         $scope.questions = data;
-        //     });
-        // }
-        // index();
         var show = function() {
+            if (questionsFactory.success.length > 0) {
+                $scope.success = questionsFactory.success.pop().success;
+            }
             questionsFactory.show($routeParams.id, function(returnedData){
                 // console.log(returnedData);
+                // console.log(typeof(returnedData.answers[0].likes));
                 if (returnedData.name === "CastError") {
                     $location.url('/');
                 } else {
@@ -26,5 +21,11 @@ myApp.controller('showQuestionsController', ['$scope', 'usersFactory', 'question
             });
         }
         show();
+        $scope.like = function(answer) {
+            questionsFactory.like(answer, function(returnedData) {
+                // console.log(returnedData);
+                show();
+            });
+        }
     }
 }]);

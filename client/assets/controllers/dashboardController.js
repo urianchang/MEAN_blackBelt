@@ -4,8 +4,12 @@ myApp.controller('dashboardController', ['$scope', 'usersFactory', 'questionsFac
         $location.url('/');
     } else {
         console.log('good to go @ dashboard');
+        $scope.success;
         $scope.user = usersFactory.user;
         var index = function() {
+            if (questionsFactory.success.length > 0) {
+                $scope.success = questionsFactory.success.pop().success;
+            }
             questionsFactory.index(function(data) {
                 // console.log(data);
                 $scope.questions = data;

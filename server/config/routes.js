@@ -23,4 +23,8 @@ module.exports = function(app){
     app.post('/question/:id', function(req, res) {
         answers.create(req, res);
     });
+        //: Like answer
+    app.put('/answer/:id', function(req, res) {
+        answers.update(req, res);
+    });
 }
