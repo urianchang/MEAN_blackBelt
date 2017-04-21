@@ -1,0 +1,7 @@
+<h1>Information about {{ friend.first_name }}</h1>
+<ul>
+    <li>First name: {{ friend.first_name }}</li>
+    <li>Last name: {{ friend.last_name }}</li>
+    <li>Birthday: {{ friend.birthday | date: 'MM/dd/yyyy' }}</li>
+    <li>User created at: {{ friend.created_at | date: 'short' }}</li>
+</ul>

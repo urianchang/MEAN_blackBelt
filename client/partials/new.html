@@ -1,0 +1,10 @@
+<h2>Add a friend</h2>
+<ul class="error-messages" ng-if="error">
+    <li ng-repeat="errorObj in validationErrors">{{ errorObj.message }}</li>
+</ul>
+<form name="friendForm" ng-submit="create()">
+    <p>First name: <input type='text' name="first_name" ng-model='newFriend.first_name'></p>
+    <p>Last name: <input type='text' name="last_name" ng-model='newFriend.last_name'></p>
+    <p>Birthday: <input type='date' name="birthday" ng-model='newFriend.birthday'></p>
+    <input type="submit" value="Add Friend" class="button">
+</form>

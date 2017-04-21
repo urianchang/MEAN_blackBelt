@@ -1,0 +1,18 @@
+<div class="success-messages" ng-if="success">
+    <p>{{ success }}</p>
+</div>
+<input class='searchbar' type="text" ng-model = 'friend_filter' placeholder="Search for a friend...">
+<table>
+    <tr>
+        <th ng-click="sortType='first_name'; sortReverse=!sortReverse">Name</th>
+        <th>Show</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr ng-repeat="friend in friends | orderBy:sortType:sortReverse | filter: friend_filter track by $index">
+        <td>{{ friend.first_name }} {{ friend.last_name }}</td>
+        <td><a href="#!/show/{{friend._id}}">Show</a></td>
+        <td><a href="#!/edit/{{friend._id}}">Update</a></td>
+        <td><a href ng-click='delete(friend)'>Delete</a></td>
+    </tr>
+</table>

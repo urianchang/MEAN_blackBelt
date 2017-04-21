@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <title>[*** TITLE ***]</title>
+    <script src="angular/angular.js" charset="utf-8"></script>
+    <script src="angular-route/angular-route.js" charset="utf-8"></script>
+    <script src="assets/app.js" charset="utf-8"></script>
+    <script src="assets/factories/*******FACTORY********.js" charset="utf-8"></script>
+    <script src="assets/controllers/*******CONTROLLER********.js" charset="utf-8"></script>
+    <script src="assets/controllers/*******CONTROLLER********.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
+  </head>
+  <body>
+    <div>
+        <div class='nav-bar'>
+            <a href="/">Home</a> | <a href="#!/new">New Friend</a>
+        </div>
+        <div ng-view="">
+            <!-- partials should load here -->
+        </div>
+    </div>
+  </body>
+</html>

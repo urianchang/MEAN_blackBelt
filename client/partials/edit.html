@@ -1,0 +1,10 @@
+<h2>Editing Friend Information</h2>
+<ul class="error-messages" ng-if="error">
+    <li ng-repeat="errorObj in validationErrors">{{ errorObj.message }}</li>
+</ul>
+<form name="friendForm" ng-submit="update()">
+    <p>First name: <input type='text' name="first_name" ng-model='friend.first_name' ng-value='friend.first_name'></p>
+    <p>Last name: <input type='text' name="last_name" ng-model='friend.last_name' ng-value='friend.last_name'></p>
+    <p>Birthday: <input type='date' name="birthday" ng-model='friend.birthday' ng-value="friend.birthday | date: 'yyyy-MM-dd'"></p>
+    <input type="submit" value="Update" class="button">
+</form>
