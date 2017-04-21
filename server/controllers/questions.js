@@ -27,6 +27,18 @@ module.exports = {
             }
         });
     },
+    show: function(req,res){
+        Question.findOne({_id: req.params.id})
+            .populate('answers')
+            .exec(function (err, question) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(question);
+                }
+            }
+        );
+    },
     // update: function(req,res){
     //     // console.log(req.body);
     //     Friend.update({_id: req.body._id},
@@ -53,13 +65,4 @@ module.exports = {
     //         }
     //     });
     // },
-    // show: function(req,res){
-    //     Friend.findOne({_id: req.params.id}, function(err, friend) {
-    //         if (err) {
-    //             res.json(err);
-    //         } else {
-    //             res.json(friend);
-    //         }
-    //     });
-    // }
 }

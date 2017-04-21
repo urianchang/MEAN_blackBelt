@@ -14,24 +14,12 @@ module.exports = function(app){
     app.post('/questions', function(req, res) {
         questions.create(req, res);
     });
-    //     //: Show all friends
-    // app.get('/friends', function(req, res) {
-    //   friends.index(req, res);
-    // });
-    //     //: Show specific friend
-    // app.get('/friends/:id', function(req, res) {
-    //   friends.show(req, res);
-    // });
+        //: Show specific question
+    app.get('/question/:id', function(req, res) {
+        questions.show(req, res);
+    });
     //     //: Add friend
     // app.post('/friends', function(req, res) {
     //   friends.create(req, res);
-    // });
-    //     //: Update friend
-    // app.put('/friends/:id', function(req, res) {
-    //   friends.update(req, res);
-    // });
-    //     //: Delete friend
-    // app.delete('/friends/:id', function(req, res) {
-    //   friends.delete(req, res);
     // });
 }

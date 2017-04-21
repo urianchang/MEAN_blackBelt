@@ -14,12 +14,12 @@ myApp.factory('questionsFactory', ['$http', function($http) {
             }
         });
     }
-    // //: Show method
-    // factory.show = function(id, callback) {
-    //     $http.get('/topic/' + id).then(function(returned_data) {
-    //         callback(returned_data.data);
-    //     });
-    // }
+    //: Show method
+    factory.show = function(id, callback) {
+        $http.get('/question/' + id).then(function(returned_data) {
+            callback(returned_data.data);
+        });
+    }
     // //: Create topic method
     // factory.create = function(newtopic, callback) {
     //     $http.post('/topics', newtopic).then(function(returned_data) {

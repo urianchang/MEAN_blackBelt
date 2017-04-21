@@ -1,4 +1,4 @@
-//: New Friends Controller
+//: Add Answers Controller
 myApp.controller('newController', ['$scope', 'friendsFactory', '$location', function ($scope, friendsFactory, $location) {
     // $scope.friends = [];
     $scope.error = false;
