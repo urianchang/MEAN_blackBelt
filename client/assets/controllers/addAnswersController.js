@@ -1,39 +1,44 @@
 //: Add Answers Controller
-myApp.controller('newController', ['$scope', 'friendsFactory', '$location', function ($scope, friendsFactory, $location) {
-    // $scope.friends = [];
-    $scope.error = false;
-    $scope.sortType = 'first_name';
-    $scope.sortReverse = false;
-    $scope.success;
-    if (friendsFactory.success.length > 0) {
-        $scope.success = friendsFactory.success.pop().success;
+myApp.controller('addAnswersController', ['$scope', 'usersFactory', 'questionsFactory', '$routeParams', '$location', function ($scope, usersFactory, questionsFactory, $routeParams, $location) {
+    if (usersFactory.userstatus === false) {
+        $location.url('/');
+    } else {
+        console.log('good to go @ adding answer');
+        $scope.error = false;
+        $scope.user = usersFactory.user;
+        $scope.newAnswer = {};
+
+        var show = function() {
+            questionsFactory.show($routeParams.id, function(returnedData){
+                // console.log(returnedData);
+                if (returnedData.name === "CastError") {
+                    $location.url('/');
+                } else {
+                    $scope.question = returnedData;
+                }
+            });
+        }
+        show();
+
+        $scope.create = function() {
+            var newAnswer = $scope.newAnswer;
+            newAnswer.user = $scope.user.user_name;
+            newAnswer.question_id = $scope.question._id;
+            questionsFactory.createAnswer(newAnswer, function(data) {
+                // console.log(data)
+                if (data.name === "ValidationError") {
+                    $scope.error = true;
+                    $scope.validationErrors = data.errors;
+                } else {
+                    $scope.newAnswer = {};
+                    $location.url('/dashboard');
+                }
+            });
+        }
+
+        $scope.clear = function() {
+            $scope.newAnswer = {};
+            $location.url('/dashboard');
+        }
     }
-    var index = function() {
-        friendsFactory.index(function(data) {
-            // console.log(data);
-            $scope.friends = data;
-        })
-    }
-    index();
-    $scope.create = function() {
-        // console.log($scope.newFriend);
-        friendsFactory.create($scope.newFriend, function(data) {
-            // console.log('newcontroller:', data);
-            if (data.name === "ValidationError") {
-                $scope.error = true;
-                $scope.validationErrors = data.errors;
-            } else {
-                // console.log('from new controller: ', data);
-                $location.url('/');
-            }
-        });
-    };
-    $scope.delete = function(friendObj) {
-        // console.log(id);
-        $scope.friends.splice($scope.friends.indexOf(friendObj), 1);
-        friendsFactory.delete(friendObj._id, function(data) {
-            // console.log("from new controller: ", data);
-            $scope.success = friendsFactory.success.pop().success;
-        });
-    };
 }]);

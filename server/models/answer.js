@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var AnswerSchema = new mongoose.Schema({
     user : { type: String, required: true},
     _question : { type : Schema.Types.ObjectId, ref : 'Question' },
-    answer : { type: String, required: true, minlength: 2 },
+    answer : { type: String, required: true, minlength: 5 },
     details : { type: String },
     likes : { type: Number, default: 0 },
     created_at : { type: Date, default: Date.now }

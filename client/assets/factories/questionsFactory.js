@@ -20,6 +20,15 @@ myApp.factory('questionsFactory', ['$http', function($http) {
             callback(returned_data.data);
         });
     }
+    //: Create answer method
+    factory.createAnswer = function(newanswer, callback) {
+        // console.log('/question/' + newanswer.question_id);
+        $http.post('/question/' + newanswer.question_id, newanswer).then(function(returned_data) {
+            if (typeof(callback) == 'function') {
+                callback(returned_data.data);
+            }
+        });
+    }
     // //: Create topic method
     // factory.create = function(newtopic, callback) {
     //     $http.post('/topics', newtopic).then(function(returned_data) {

@@ -1,10 +1,14 @@
-<h2>Add a friend</h2>
+<div class='nav-bar'>
+    <a href="#!/dashboard">Home</a> | <a href="#!/question/{{question._id}}">Go Back to Question</a> | <a href="/">Logout</a>
+</div>
+<h1 style="font-weight: bold;">{{ question.question }}</h1>
+<h3>{{ question.description }}</h3>
+<hr style="margin: 20px 0px;">
 <ul class="error-messages" ng-if="error">
     <li ng-repeat="errorObj in validationErrors">{{ errorObj.message }}</li>
 </ul>
-<form name="friendForm" ng-submit="create()">
-    <p>First name: <input type='text' name="first_name" ng-model='newFriend.first_name'></p>
-    <p>Last name: <input type='text' name="last_name" ng-model='newFriend.last_name'></p>
-    <p>Birthday: <input type='date' name="birthday" ng-model='newFriend.birthday'></p>
-    <input type="submit" value="Add Friend" class="button">
+<form name="answerForm">
+    <p>Your Answer: <textarea rows="4" cols="22" name="answer" ng-model='newAnswer.answer'></textarea></p>
+    <p>Supporting details for your answer (optional): <textarea rows="4" cols="22" name="details" ng-model='newAnswer.details'></textarea></p>
+    <p><button class="button" ng-click="clear()">Cancel</button>    <button class="button" ng-click="create()">Submit</button></p>
 </form>

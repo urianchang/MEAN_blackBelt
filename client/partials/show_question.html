@@ -6,7 +6,7 @@
 <hr style="margin: 20px 0px;">
 <h2>Answers:</h2>
 <table>
-    <tr ng-repeat="answer in answers | orderBy: 'answer.likes' track by $index">
+    <tr ng-repeat="answer in question.answers | orderBy: 'answer.likes' track by $index">
         <td>
             <p>{{ answer.user }}:</p>
             <p style="font-weight: bold;">{{ answer.answer }}</p>

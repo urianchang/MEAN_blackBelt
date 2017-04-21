@@ -1,5 +1,6 @@
 var users = require('../controllers/users.js');
 var questions = require('../controllers/questions.js');
+var answers = require('../controllers/answers.js');
 
 module.exports = function(app){
         //: Login / Register user
@@ -18,8 +19,8 @@ module.exports = function(app){
     app.get('/question/:id', function(req, res) {
         questions.show(req, res);
     });
-    //     //: Add friend
-    // app.post('/friends', function(req, res) {
-    //   friends.create(req, res);
-    // });
+        //: Add answer to question
+    app.post('/question/:id', function(req, res) {
+        answers.create(req, res);
+    });
 }
