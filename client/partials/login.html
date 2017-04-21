@@ -1,0 +1,7 @@
+<h1>Questions and Answers</h1>
+<ul class="error-messages" ng-if="error">
+    <li ng-repeat="errorObj in validationErrors">{{ errorObj.message }}</li>
+</ul>
+<form name="loginForm" ng-submit="login()">
+    <p>User Name: <input type='text' name="user_name" ng-model='newUser.user_name'>    <input type="submit" value="Enter" class="button"></p>
+</form>

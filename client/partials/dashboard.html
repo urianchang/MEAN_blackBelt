@@ -1,0 +1,25 @@
+<div class="success-messages" ng-if="success">
+    <p>{{ success }}</p>
+</div>
+<div class="header">
+    <div style="display: inline-block; width: 50%">
+        <h1>Hi, {{user.user_name}}!</h1>
+        <a href='#!/new_question'>Add a Question</a>
+    </div>
+    <div style="display: inline-block; width: 47%; text-align: right; vertical-align: top;">
+        <a href='/'>Logout</a>
+    </div>
+</div>
+<input class='searchbar' type="text" ng-model = 'question_filter' placeholder="Search for a question...">
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Answers</th>
+        <th>Actions</th>
+    </tr>
+    <tr ng-repeat="q in questions | filter: question_filter track by $index">
+        <td>{{ q.question }}</td>
+        <td>{{ q.answers.length }}</td>
+        <td><a href="#!/question/{{q._id}}">Show</a>    |    <a href="#!/question/{{q._id}}/new_answer">Answer</a></td>
+    </tr>
+</table>

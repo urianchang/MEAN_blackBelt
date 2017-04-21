@@ -9,7 +9,7 @@ var path = require('path');
 //: Use native promises (gets rid of deprecation warning)
 mongoose.Promise = global.Promise;
 // connect to mongoose!
-mongoose.connect('mongodb://localhost/******DB_NAME_HERE*******');
+mongoose.connect('mongodb://localhost/blackbelt');
 // create a variable that points to the path where all of the models live
 var models_path = path.join(__dirname, './../models');
 // read all of the files in the models_path and require (run) each of the javascript files

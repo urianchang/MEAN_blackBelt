@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html ng-app='myApp'>
   <head>
-    <title>[*** TITLE ***]</title>
+    <title>MEAN Black Belt</title>
     <script src="angular/angular.js" charset="utf-8"></script>
     <script src="angular-route/angular-route.js" charset="utf-8"></script>
     <script src="assets/app.js" charset="utf-8"></script>
-    <script src="assets/factories/*******FACTORY********.js" charset="utf-8"></script>
-    <script src="assets/controllers/*******CONTROLLER********.js" charset="utf-8"></script>
-    <script src="assets/controllers/*******CONTROLLER********.js" charset="utf-8"></script>
+    <script src="assets/factories/usersFactory.js" charset="utf-8"></script>
+    <script src="assets/factories/questionsFactory.js" charset="utf-8"></script>
+    <script src="assets/controllers/loginController.js" charset="utf-8"></script>
+    <script src="assets/controllers/dashboardController.js" charset="utf-8"></script>
+    <script src="assets/controllers/addQuestionsController.js" charset="utf-8"></script>
+    <!-- <script src="assets/controllers/*******CONTROLLER********.js" charset="utf-8"></script> -->
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
   </head>
-  <body>
-    <div>
-        <div class='nav-bar'>
-            <a href="/">Home</a> | <a href="#!/new">New Friend</a>
-        </div>
-        <div ng-view="">
-            <!-- partials should load here -->
-        </div>
-    </div>
+  <body ng-view="">
+    <!-- partials should load here -->
   </body>
 </html>
